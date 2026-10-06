@@ -521,7 +521,7 @@ with tab5:
     ff = go.Figure(go.Bar(x=imp[order], y=np.array(FEATURES)[order], orientation="h",
                           marker_color=["#e8c97d" if imp[i] == imp.max() else "#1e3a5f" for i in order],
                           text=[f"{v:.3f}" for v in imp[order]], textposition="outside"))
-    ff.update_layout(**PLOT, height=520, margin=dict(l=0, r=60, t=10, b=10), xaxis_title="Relative importance")
+    ff.update_layout(**PLOT, height=520, xaxis_title="Relative importance")
     st.plotly_chart(ff, use_container_width=True)
     top3 = [FEATURES[i] for i in np.argsort(imp)[-3:][::-1]]
     st.markdown(f"**Top 3 features:** {', '.join(top3)}")
